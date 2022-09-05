@@ -6,6 +6,7 @@ COPY ./docker/php/php.ini /usr/local/etc/php/
 RUN apk update
 RUN apk add git \
     autoconf \
+    gd \
     gcc \
     g++ \
     make \
