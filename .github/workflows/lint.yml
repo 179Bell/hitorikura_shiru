@@ -24,7 +24,7 @@ jobs:
           path: ./vendor
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
 
-      - name: Compsoer install
+      - name: Composer install
         id: composer-install
         if: steps.cache.outputs.cache-hit != 'true'
         run: composer install -n --prefer-dist
