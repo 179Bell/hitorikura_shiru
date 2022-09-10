@@ -5,9 +5,14 @@ on:
     branches:
       - feature
 
+defaults:
+  run:
+    working-directory: ./hitorikura_shiru
+
 jobs:
   lint:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
 
@@ -30,7 +35,7 @@ jobs:
         run: composer install -n --prefer-dist
 
       - name: Run larastan
-        run: ./hitorikurashiru/vendor/bin/phpstan analyse --configuration=phpstan.neon
+        run: ./vendor/bin/phpstan analyse --configuration=phpstan.neon
 
       - name: Run php-cs-fixer
-        run: ./hitorikurashiru/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --verbose --dry-run
+        run: ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --verbose --dry-run || true
