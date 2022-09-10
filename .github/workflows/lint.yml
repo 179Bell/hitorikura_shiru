@@ -8,6 +8,11 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+
+    defaults:
+      run: 
+        shell: bash
+
     steps:
       - uses: actions/checkout@v3
 
@@ -16,6 +21,9 @@ jobs:
         with:
           php-version: '7.4'
           tools: composer:v2
+
+      run: |
+        ls
 
       - name: Cache composer
         id: cache
