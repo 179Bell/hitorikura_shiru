@@ -13,14 +13,14 @@ services:
     depends_on:
       - app
     volumes:
-      - ./src/:/var/www/html
+      - ./hitorikura_shiru/:/var/www/html
 
   app:
     build:
       context: .
       dockerfile: ./docker/php/Dockerfile
     volumes:
-      - ./src/:/var/www/html
+      - ./hitorikura_shiru/:/var/www/html
     environment:
       - DB_CONNECTION=mysql
       - DB_HOST=${DB_HOST}
